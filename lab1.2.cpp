@@ -1,5 +1,4 @@
 #include<iostream>
-using namespace std;
 
 int* genRandArray(int size, int maxValue)
 {
@@ -23,15 +22,20 @@ void print(int* arr)
 
 int** genRandMatrix(int size, int maxValue)
 {
-    for (int i = 0; i < size; i++)
+    int** new_matrix = new int*[size+1];
+    for (int i = 0; i < size+1; i++)
     {
-    genRandArray(size, maxValue);
+    new_matrix[i] = genRandArray(size, maxValue);
     }
-
+    new_matrix[0][0] = size;   
+    return new_matrix;
 };
 void printMatrix(int** matrix)
 {
-    
+    for(int i = 1; i <= matrix[0][0]; i++)
+    {
+        print(matrix[i]);
+    }
 };
 
 
@@ -42,4 +46,10 @@ int main()
     int** matrix = genRandMatrix(size, maxValue);
     printMatrix(matrix);
 //очистка памяти
+    for(int x = 0; x <= size; x++)
+    {
+        delete[] matrix[x];    
+    }
+    delete[] matrix;
+    return 0;
 }
