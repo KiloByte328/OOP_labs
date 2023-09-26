@@ -32,9 +32,11 @@ int** genRandMatrix(int size, int maxValue)
 };
 void printMatrix(int** matrix)
 {
+    std::cout << matrix[0][0]<<"\n";
     for(int i = 1; i <= matrix[0][0]; i++)
     {
         print(matrix[i]);
+        std::cout<<"\n";
     }
 };
 
