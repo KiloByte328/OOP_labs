@@ -23,46 +23,49 @@ int **genRandomMatrix(int **matrix, int size)
 
 void MatrixToArray(int **matrix, int *arr, int size, int type)
 {
-    int diagonal = 0;
-    int arr_count = 0;
+    int inner = size;
+    int arr_counter = 0;
     switch (type)
     {
     case 0:
-    for(int i = 0; i <= size*size; i++)
-    {
-        
-    }
-/*    for (int i = 0; i <= size*size; i++)
-    {
-        arr[i] = matrix[i][size-i];
-    }*/
-/*    for (int i = 0; i <= size; i++)
+        for (int i = 0; i <= size; i++)
         {
-            for (int j = size; (diagonal+i) >= size; j = j--)
-            {  
-                arr[arr_count] = matrix[i][j];
-                cout << arr[arr_count] << " ";
-                if (arr_count <= size)
-                arr_count = arr_count + 1;
+            int f = i;
+            for(int j = size; j >= 0; j--, i--)
+            {
+                if (i >= 0)
+                {
+                arr[arr_counter] = matrix[i][j];
+                cout << arr[arr_counter] << " ";
+                arr_counter++;
+                }
             }
-            arr_count = 0;
+            i = f;
             cout << "\n";
-        }*/
+        }
         cout <<"\n";
         break;
     case 1:
-    for (int i = 0; i <= size; i++)
+        for (int i = 0; i <= size; i++)
         {
-            for (int j = 0; j <= i; j++)
-            {  
-                arr[j] = matrix[i][j];
-                cout << arr[j] << " ";
+            int v = i;
+            for(int j = 0; j <= size; j++, i--)
+            {
+                if (i >= 0)
+                {
+                arr[arr_counter] = matrix[i][j];
+                cout << arr[arr_counter] << " ";
+                arr_counter++;
+                }
             }
+            i = v;
             cout << "\n";
         }
         cout <<"\n";
         break;
     case 2:
+        int middle;
+        middle = size/2;
         for(int i = size/2; i < size*size; i++)
         {
  //           arr[i] = ;
@@ -70,7 +73,11 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
         cout <<"\n";
         break;
     case 3:
+        
+        for(int i = 0; i <=size; i++)
+        {
 
+        }
         cout <<"\n";
         break;
     }
