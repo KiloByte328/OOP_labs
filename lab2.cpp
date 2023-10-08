@@ -17,6 +17,7 @@ int **genRandomMatrix(int **matrix, int size)
             matrix[i][j] = rand();
             cout << matrix[i][j] << " ";
         }
+        cout << "\n";
     }
      return matrix;
 };
@@ -43,7 +44,6 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 }
             }
             i = f;
-            cout << "\n";
         }
         cout <<"\n";
         break;
@@ -67,7 +67,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
         break;
     case 2:
     {
-        cout << "Задание 3. по спирали с центрального элемента"<< "\n";
+        cout << "\nЗадание 3. по спирали с центрального элемента"<< "\n";
         int center = size/2;
         bool the_last_circle;
         if (size % 2 == 0)
@@ -187,6 +187,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
             for (int j = 0; j <= i; j++)
             {
                 arr[arr_counter] = matrix[i][j];
+                cout << arr[arr_counter] << " ";
                 arr_counter++;
                 temp = j;
             }
@@ -195,7 +196,6 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 arr[arr_counter] = matrix[f][i];
                 cout << arr[arr_counter] << " ";
             }
-            cout << "\n";
         }
         break;
     }
