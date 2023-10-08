@@ -172,8 +172,6 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 top++;
                         break;
                     }
-                    cout << "Задание 3. Вывод матрицы по спирали начиная с центрального эемента" <<"\n";
-                    array_print(&arr[arr_counter], size*size);
                     g = cycles_count+2;
                 }
         }
