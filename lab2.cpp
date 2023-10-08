@@ -15,24 +15,11 @@ int **genRandomMatrix(int **matrix, int size)
         for(int j = 0; j <= size; j++)
         {
             matrix[i][j] = rand();
+            cout << matrix[i][j] << " ";
         }
     }
-    cout << "Сгенерированная матрица:" << "\n";
-    for (int i = 0; i <= size; i++)
-    {
-        array_print(matrix[i], size);
-    }   
      return matrix;
 };
-
-void array_print(int* array, int size)
-{
-    for(int i = 0; i <= size; i++)
-    {
-        cout << array[i] << " ";
-    }
-    cout << "\n";
-}
 
 void MatrixToArray(int **matrix, int *arr, int size, int type)
 {
@@ -51,10 +38,12 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 if (i >= 0)
                 {
                 arr[arr_counter] = matrix[i][j];
+                cout << arr[arr_counter] << " ";
                 arr_counter++;
                 }
             }
             i = f;
+            cout << "\n";
         }
         cout <<"\n";
         break;
@@ -69,11 +58,11 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 if (i >= 0)
                 {
                 arr[arr_counter] = matrix[i][j];
+                cout << arr[arr_counter] << " ";
                 arr_counter++;
                 }
             }
             i = v;
-            cout << "\n";
         }
         break;
     case 2:
@@ -103,7 +92,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 for(int top_count = 0; top_count < numbers; top_count++)
                 {
                     arr[arr_counter] = matrix[center-top][center-top+top_count];
-
+                    cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (top_count == size)
                         top_count = numbers;
@@ -112,7 +101,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                  for(int right_count = 0; right_count < numbers; right_count++)
                 {
                     arr[arr_counter] = matrix[center-right+right_count][center+right];
-
+                    cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (right_count == size)
                         right_count = numbers;
@@ -121,8 +110,8 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 for(int bottom_count = 0; bottom_count < numbers; bottom_count++)
                 {
                     arr[arr_counter] = matrix[center+bottom][center+bottom-bottom_count];
-
-                    arr_counter++;
+                    cout << arr[arr_counter] << " ";
+                        arr_counter++;
                     if (bottom_count == size)
                         bottom_count = numbers;
                 }
@@ -130,7 +119,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                  for(int left_count = 0; left_count < numbers; left_count++)
                 {
                     arr[arr_counter] = matrix[center+left-left_count][center-left];
-
+                    cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (left_count == size)
                         left_count = numbers;
@@ -146,7 +135,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                  for(int right_count = 0; right_count < numbers; right_count++)
                 {
                     arr[arr_counter] = matrix[center-right+right_count+1][center+right];
-
+                    cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (right_count == size)
                         right_count = numbers;
@@ -155,7 +144,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                                 for(int bottom_count = 0; bottom_count < numbers; bottom_count++)
                 {
                     arr[arr_counter] = matrix[center+bottom][center+bottom-bottom_count];
-
+                    cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (bottom_count == size)
                         bottom_count = numbers;
@@ -166,7 +155,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                  for(int left_count = 0; left_count < numbers; left_count++)
                 {
                     arr[arr_counter] = matrix[center+left-left_count-1][center-left];
-
+                    cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (left_count == size)
                         left_count = numbers;
@@ -175,7 +164,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 for(int top_count = 0; top_count < numbers; top_count++)
                 {
                     arr[arr_counter] = matrix[center-top][center-top+top_count+1];
-
+                    cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (top_count+1 == size)
                         top_count = numbers;
@@ -192,7 +181,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
         break;
     }
     case 3:
-    cout << "\n";
+            cout << "Задание 4. Вывод матрицы по спирали начиная с левого верхнего эемента" <<"\n";
         {
         for(int i = 0; i <size; i++)
         {
@@ -210,8 +199,6 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
             }
             cout << "\n";
         }
-        cout << "Задание 4. Вывод матрицы по спирали начиная с левого верхнего эемента" <<"\n";
-        array_print(&arr[arr_counter], size*size);
         break;
     }
     }
