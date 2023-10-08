@@ -160,20 +160,20 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 cout << "\nleft:\n";
                  for(int left_count = 0; left_count < numbers; left_count++)
                 {
-                    arr[arr_counter] = matrix[center+left-left_count][center-left];
+                    arr[arr_counter] = matrix[center+left-left_count-1][center-left];
                     cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (left_count == size)
                         left_count = numbers;
                 }
                 left++;
-                                cout << "Top:\n";
+                cout << "\nTop:\n";
                 for(int top_count = 0; top_count < numbers; top_count++)
                 {
                     arr[arr_counter] = matrix[center-top][center-top+top_count+1];
                     cout << arr[arr_counter] << " ";
                     arr_counter++;
-                    if (top_count == size)
+                    if (top_count+1 == size)
                         top_count = numbers;
                 }
                 top++;
@@ -186,8 +186,9 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
         break;
     }
     case 3:
+    cout << "\n";
         {
-        for(int i = 0; i <=size; i++)
+        for(int i = 0; i <size; i++)
         {
             int temp;
             for (int j = 0; j <= i; j++)
@@ -197,9 +198,10 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 arr_counter++;
                 temp = j;
             }
-            for (int f = temp; f >0;f--)
+            cout <<"\n";
+            for (int f = temp-1; f >= 0;f--)
             {
-                arr[arr_counter] = matrix[i-f][i];
+                arr[arr_counter] = matrix[f][i];
                 cout << arr[arr_counter] << " ";
             }
             cout << "\n";
@@ -236,4 +238,5 @@ int main()
     }
     delete[] new_matrix;
     delete[] mass;
+    return 0;
 }
