@@ -68,10 +68,14 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
     case 2:
     {
         int center = size/2;
+        bool the_last_circle;
         if (size % 2 == 0)
         {
             center++;
+            the_last_circle = false;
         }
+        else   
+            the_last_circle = true;
         if(size == 1)
         {
             center = 1;
@@ -126,6 +130,56 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                 left++;
                 numbers = numbers + 2;
                 cout << "\n\n";
+                if(numbers > size)
+                {
+                    switch (the_last_circle)
+                    {
+                        case true:
+                    cout << "\nright:\n";
+                 for(int right_count = 0; right_count < numbers; right_count++)
+                {
+                    arr[arr_counter] = matrix[center-right+right_count][center+right];
+                    cout << arr[arr_counter] << " ";
+                    arr_counter++;
+                    if (right_count == size)
+                        right_count = numbers;
+                }
+                right++;
+                                for(int bottom_count = 0; bottom_count < numbers; bottom_count++)
+                {
+                    arr[arr_counter] = matrix[center+bottom][center+bottom-bottom_count];
+                    cout << arr[arr_counter] << " ";
+                    arr_counter++;
+                    if (bottom_count == size)
+                        bottom_count = numbers;
+                }
+                bottom++;
+                        break;
+                        case false:
+                cout << "\nleft:\n";
+                 for(int left_count = 0; left_count < numbers; left_count++)
+                {
+                    arr[arr_counter] = matrix[center+left-left_count][center-left];
+                    cout << arr[arr_counter] << " ";
+                    arr_counter++;
+                    if (left_count == size)
+                        left_count = numbers;
+                }
+                left++;
+                                cout << "Top:\n";
+                for(int top_count = 0; top_count < numbers; top_count++)
+                {
+                    arr[arr_counter] = matrix[center-top][center-top+top_count];
+                    cout << arr[arr_counter] << " ";
+                    arr_counter++;
+                    if (top_count == size)
+                        top_count = numbers;
+                }
+                top++;
+                        break;
+                    }
+                    g = cycles_count+2;
+                }
         }
         cout <<"\n";
         break;
