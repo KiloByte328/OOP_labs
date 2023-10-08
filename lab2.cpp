@@ -138,13 +138,14 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                     cout << "\nright:\n";
                  for(int right_count = 0; right_count < numbers; right_count++)
                 {
-                    arr[arr_counter] = matrix[center-right+right_count][center+right];
+                    arr[arr_counter] = matrix[center-right+right_count+1][center+right];
                     cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (right_count == size)
                         right_count = numbers;
                 }
                 right++;
+                                cout << "\nbottom:\n";
                                 for(int bottom_count = 0; bottom_count < numbers; bottom_count++)
                 {
                     arr[arr_counter] = matrix[center+bottom][center+bottom-bottom_count];
@@ -169,7 +170,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
                                 cout << "Top:\n";
                 for(int top_count = 0; top_count < numbers; top_count++)
                 {
-                    arr[arr_counter] = matrix[center-top][center-top+top_count];
+                    arr[arr_counter] = matrix[center-top][center-top+top_count+1];
                     cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (top_count == size)
