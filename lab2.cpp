@@ -68,7 +68,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
     case 2:
     {
         int center = size/2;
-        if (size % 2 == 1)
+        if (size % 2 == 0)
         {
             center++;
         }
@@ -76,6 +76,7 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
         {
             center = 1;
         }
+        int numbers = 3;
         int cycles_count = center;
         arr[arr_counter] = matrix[center][center];
         cout <<"center:" <<  arr[arr_counter] << "\n";
@@ -84,45 +85,46 @@ void MatrixToArray(int **matrix, int *arr, int size, int type)
             for(int g = 1; g <= cycles_count+1; g++)
             {
                 cout << "Top:\n";
-                for(int top_count = 0; top_count < g*3-1; top_count++)
+                for(int top_count = 0; top_count < numbers; top_count++)
                 {
-                    arr[arr_counter] = matrix[center-top][center-g+top_count];
+                    arr[arr_counter] = matrix[center-top][center-top+top_count];
                     cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (top_count == size)
-                        top_count = g*3+1;
+                        top_count = numbers;
                 }
                 top++;
                 cout << "\nright:\n";
-                 for(int right_count = 0; right_count < g*3-1; right_count++)
+                 for(int right_count = 0; right_count < numbers; right_count++)
                 {
-                    arr[arr_counter] = matrix[center-g+right_count][center+right];
+                    arr[arr_counter] = matrix[center-right+right_count][center+right];
                     cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (right_count == size)
-                        right_count = g*3+1;
+                        right_count = numbers;
                 }
                 right++;
                 cout << "\nbottom:\n";
-                for(int bottom_count = 0; bottom_count < g*3-1; bottom_count++)
+                for(int bottom_count = 0; bottom_count < numbers; bottom_count++)
                 {
-                    arr[arr_counter] = matrix[center+bottom][center+g-bottom_count];
+                    arr[arr_counter] = matrix[center+bottom][center+bottom-bottom_count];
                     cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (bottom_count == size)
-                        bottom_count = g*3;
+                        bottom_count = numbers;
                 }
                 bottom++;
                 cout << "\nleft:\n";
-                 for(int left_count = 0; left_count < g*3-1; left_count++)
+                 for(int left_count = 0; left_count < numbers; left_count++)
                 {
-                    arr[arr_counter] = matrix[center+g-left_count][center-left];
+                    arr[arr_counter] = matrix[center+left-left_count][center-left];
                     cout << arr[arr_counter] << " ";
                     arr_counter++;
                     if (left_count == size)
-                        left_count = g*3;
+                        left_count = numbers;
                 }
                 left++;
+                numbers = numbers + 2;
                 cout << "\n\n";
         }
         cout <<"\n";
